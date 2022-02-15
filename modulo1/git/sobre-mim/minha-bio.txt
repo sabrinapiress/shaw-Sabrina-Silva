@@ -7,80 +7,14 @@ Olá! Meu nome é Sabrina.
 .Gosto muito de ler, leio de tudo um pouco, mas gosto muito de fantasia.
 .Saí de casa aos 17 anos.
 .Gosto muito desse poema
-
 		quem soube de mim em outros tempos
 		já não sabe de mim agora
 		pois quando me quebraram
 		meus pedaços foram arrumando novos lugares
 		mais lindos e mais fortes
-		para se encaixar nessa mulher que hoje escreve
+		para se encaixar nessa mulher que hoje escreve 
 		com punhos firmes e nenhuma culpa
 		de existir como bem quer
 
-.Gosto muito de plantas, mas mato todas.
+ .Gosto muito de plantas, mas mato todas. 
    (isso me atormenta a vida)
-.Ah verdade! Eu desenho, desenho muito bem na verdade. Quando estiver trabalhando
-   na area vou voltar a fazer o curso.
-.Vou colocar aqui a receita de um doce que fiz no Natal
-
-1. Lave os morangos e retire os cabinhos.
-
-2. Reserve 4 para a decoração.
-
-3. Junte o leite condensado com a manteiga e as gemas.
-
-4. Leve ao fogo brando, suavemente até levantar fervura.
-
-5. Derreta o chocolate no microondas.
-
-6. Misture.-o ao creme de leite
-
-7. Para a montagem, use uma cremeira de vidro alta e disponha todos os morangos no fundo.
-
-8. Cubra com mistura de leite condensado.
-
-9. Por cima derrame, o chocolate, aliando com uma espátula.
-
-10. Enfeite com os morangos reservados.
-43
-.Tenho uma namorada muito linda.
-.Sou intolerante a lactose
-
-		Acho que é isso!
-
-**************************************************** **************************************************** ********************
--------------------------------------------------- -------------------------------------------------- ----------
-.env
-.env.test
-
-# parcel-bundler cache (https://parceljs.org/)
-.cache
-
-# Next.js build output
-.next
-
-# Nuxt.js build / generate output
-.nuxt
-dist
-build/
-
-# Gatsby files
-.cache/
-# Comment in the public line in if your project uses Gatsby and *not* Next.js
-# https://nextjs.org/blog/next-9-1#public-directory-support
-# public
-
-# vuepress build output
-.vuepress/dist
-
-# Serverless directories
-.serverless/
-
-# FuseBox cache
-.fusebox/
-
-# DynamoDB Local files
-.dynamodb/
-
-# TernJS port file
-.tern-port
