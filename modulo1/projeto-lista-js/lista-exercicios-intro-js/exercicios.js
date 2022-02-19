@@ -35,10 +35,8 @@ function imprimeIdade() {
 
 // EXERCÍCIO 03
 function calculaIMC(peso, altura) {
-  
-  let peso = Number(prompt("Digite o seu peso!"))
-  let altura = Number(prompt("Digite sua altura também!"))
-  let resultado =  peso / (altura * altura)
+
+let resultado =  peso / (altura * altura)
     return resultado
 }
 
@@ -67,55 +65,85 @@ function imprimeTresCoresFavoritas() {
 
 // EXERCÍCIO 06
 function retornaStringEmMaiuscula(string) {
-  const frase = prompt("Oi?")
-  const fraseM = frase.toUpperCase
-  return fraseM
-
+ 
+  let stringMaiuscula = string.toUpperCase()
+  stringMaiuscula.toString()
+   return stringMaiuscula
 }
 
 // EXERCÍCIO 07
 function calculaIngressosEspetaculo(custo, valorIngresso) {
-  let custo = Number(prompt("Qual o custo do show??"))
-  let valorIngresso = Number(prompt("Valor do ingresso?"))
-let resultado = custo / valorIngresso
-
+  let resultado = custo / valorIngresso
 
 return resultado
 }
 
 // EXERCÍCIO 08
 function checaStringsMesmoTamanho(string1, string2) {
-  // implemente sua lógica aqui
-
+ let tamanhS1 = string1.length
+ let tamanhS2 = string2.length
+ let comparacao = tamanhS1 === tamanhS2
+return comparacao
 }
 
 // EXERCÍCIO 09
 function retornaPrimeiroElemento(array) {
-  // implemente sua lógica aqui
+  let primeiroElemento = array[0]
+  return primeiroElemento
 
 }
 
 // EXERCÍCIO 10
 function retornaUltimoElemento(array) {
-  // implemente sua lógica aqui
+  let tamanho = array.length
+  let ultimoElemento = array[tamanho - 1]
+
+  return ultimoElemento
 
 }
 
 // EXERCÍCIO 11
 function trocaPrimeiroEUltimo(array) {
-  // implemente sua lógica aqui
+let primeiroElemento = array[0]
+  let tamanho = array.length
+  let ultimoElemento = array[tamanho - 1]
+        primeiroElemento.splice(0,1) 
+        ultimoElemento.pop()
+        ultimoElemento.push(primeiroElemento)
+        
 
 }
 
 // EXERCÍCIO 12
 function checaIgualdadeDesconsiderandoCase(string1, string2) {
-  // implemente sua lógica aqui
-
+ let stringM1 = string1.toUpperCase
+ let stringM2 = string2.toUpperCase
+ let comparacao = stringM1 === stringM2
+  console.log(string2)
+ console.log(string1)
+return comparacao
 }
 
 // EXERCÍCIO 13
 function checaRenovacaoRG() {
-  // implemente sua lógica aqui
+  let anoAtual = prompt("Em que ano estamos?")
+  let anoNasc = prompt("Qual seu ano de nascimento?")
+  let anoIdent = prompt("Em que ano sua carteira de identidade foi emitida?")
+  let idadeUsuario = anoNasc - anoAtual
+  let tempoRg = anoIdent - anoAtual
+  let vinte = idadeUsuario >= 20
+  let vinteAcinquenta = idadeUsuario < 21 >= 50
+  let maisCinquenta  = idadeUsuario < 50 
+  let rgVinte = tempoRg <= 5
+  let rgAcinquenta = tempoRg <= 10
+  let rgMcinquenta =  tempoRg <= 15
+
+let resultadoVinte = vinte === rgVinte
+let resultadoAcinquenta = vinteAcinquenta === rgAcinquenta
+let resultadoMcinquenta = maisCinquenta === rgMcinquenta
+
+return resultadoVinte, resultadoAcinquenta , resultadoMcinquenta
+
 
 }
 
