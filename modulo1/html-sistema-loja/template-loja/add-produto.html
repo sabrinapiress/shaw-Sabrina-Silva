@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Adicionar Produto</title>
+    <link rel="stylesheet" type="text/css" href="styleProduto.css">
 </head>
 <body>
     <div>
-        <p>Botega Variedades</p>
+        <h1>Botega Veneta Variedades</h1>
     </div>
     
-    <div>
+    <div class="links">
         <a href="index.html"target="_blank">Página Inicial</a>
         <a href="ctrl-estoque.html"target="_blank">Controle de Estoque</a>
         <a href="add-produto.html"target="_blank">Adicionar Produto</a>
@@ -24,22 +25,22 @@
             <label for="link-foto">Link para foto: </label>
             <input type="url" id="link-foto" name="link-foto">
         </div>
-        
+<br>
         <div>
             <label for="descricao">Descrição do produto: </label>
             <input type="text" id="descricao" name="descrição">
         </div>
-        
+<br>
         <div>
             <label for="preco">Preço (em R$): </label>
             <input type="number" id="preco" name="preço">
         </div>
-        
+<br>
         <div>
             <label for="quantidade"> Quantidade disponível: </label>
             <input type="number" id="quantidade" nome="quantidade">
         </div>
-
+<br>
         <div class="form-add">
             <button type="submit">Adicionar</button>
         </div>
