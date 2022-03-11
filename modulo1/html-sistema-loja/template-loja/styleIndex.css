@@ -1,0 +1,74 @@
+/*
+tags, pega direto a tag, se quiser mudar tudo
+div {
+background-color: red;
+ border: 1px solid black;
+}
+
+class chama com ponto é por classe
+<p class="texto-primario"> Texto Bonito </p>
+
+id chama com # /
+<p id="texto-primario"> Texto Bonito </p>
+
+background-color: red;
+border: 1px solid black;
+color: green;
+display: block
+display: inline
+display: inline-block
+margin-top: 5px;
+margin-bottom: 6px;
+margin: 10px;
+margin: 10px 5px 8px 5px;
+ 
+*/
+h1{
+    background-color: lightblue;
+    color: antiquewhite;
+    margin: 10px 5px 8px 5px;
+    height: 125px; 
+    
+}
+
+h3{
+    background-color: antiquewhite;
+    color: lightblue;  
+    width: 60vw; 
+    margin-left: auto;
+    margin-right: auto; 
+    border: 3px solid ;
+}
+.links{
+    margin: 10px 5px 8px 400px;
+    color: lightskyblue;
+    
+}
+.imagens-redes{
+    width: 4vw;
+    height: 5vh;
+    border: 3px solid lightblue;
+}
+.descricao{
+   background-color: antiquewhite;
+    margin: 10px 5px 8px 5px;
+    color: lightskyblue;
+    height:110px; 
+}
+.redes{
+    color: lightskyblue;
+}
+
+
+#imagens{
+    width: 30vw;
+    height: 30vh;
+    border: 5px solid lightblue;
+}
+
+iframe{
+    width: 40vw;
+    height: 35vh;
+    border: 5px solid lightblue;
+    margin: 10px 5px 8px 350px;
+}
