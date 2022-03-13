@@ -1,6 +1,7 @@
 .nav-link {
     color: #fff;
-
+    float: right;
+    padding: 12px;
 }
 
 .nav-link:hover,
@@ -9,43 +10,23 @@
     text-decoration: none;
 }
 
-/* input {
-    height: 20px;
-    width: 500px;
-    border: none;
-    border-bottom: 1px solid black
-} */
-/* #divBusca{
-    background-color:#2F4F4F;
-    border:solid 1px;
-    border-radius:15px;
-    width:300px;
-  }
-  
-  #txtBusca{
-    float:left;
-    background-color:transparent;
-    padding-left:5px;
-    font-style:italic;
-    font-size:18px;
-    border:none;
-    height:32px;
-    width:260px;
-  }
-   */
-h1{
+.hr3{
+
+}
+.tituloHome{
     color: #fff;
     text-align: center;
+    margin: 0px 200px 30px; 
 }
 
 .gg {
     transition: all 0.4s;
 }
 
-img{
-    width: 130px;
-    margin: 0px 550px 0px;
-    border-radius: 60%;
+.logo{
+    width: 115px;
+    margin: 30px 500px 0px;
+    border-radius: 100%;
 }
 
 .sub-titulo{
@@ -56,32 +37,56 @@ img{
 
 .lead{
     font-size: 18px;
+    text-align: center;
 }
 
-
-/* .gg .navbar-brand {
+.list{
+    margin: 200px 10px 10px 100px;
+   
+}
+h3{
     color: #fff;
-} */
+}
 
+#div{
+   
+}
 
-/* .navbar.active {
-    background: #fff;
-    box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.1);
-} */
+.tituloProjeto{
+    margin: 20px 0px 30px 525px;
+}
 
-/* .navbar.active .nav-link {
-    color: #555;
-} */
+#projeto1{
+    display: inline;
+    max-width: 40%;
+    max-height: 40%;
+    margin: 10px 10px 20px 60px;
+    border: 3px solid #fff;
+}
 
-/* .navbar.active .nav-link:hover,
-.navbar.active .nav-link:focus {
-    color: #555;
-    text-decoration: none;
-} */
+#projeto1texto{
+    margin: 0px 0px 0px 95px;
+}
 
-/* .navbar.active .navbar-brand {
-    color: #555;
-} */
+#projeto2{
+    display: inline;
+    max-width: 40%;
+    max-height: 40%;
+    margin: 20px;
+    margin: 10px 10px 20px 70px;
+    border: 5px solid #fff;
+}
+
+#projeto2texto{
+    margin: -20px 0px 0px 700px;
+}
+
+.portfoliolink{
+    color: #fff;
+    float: left;
+    padding: 30px;
+    margin: 10px 0px 0px 0px
+}
 
 
 @media (max-width: 991.98px) {
@@ -94,17 +99,11 @@ img{
     }
 }
 
-
-/* body {
-    min-height: 110vh;
-    background-color: #4ca1af;
-    background-image: linear-gradient(135deg, #4ca1af 0%, #c4e0e5 100%);
-} */
-
 body {
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     min-height: 110vh;
-    background-color:  #4ca1af;
-    background-image: linear-gradient(135deg, #4ca1af 0%, #c4e0e5 100%);
+    background-color:  #236685;
+    background-image: linear-gradient(135deg, #488699 0%, #c4e0e5 100%);
 }
 
 .hr1{
@@ -116,14 +115,107 @@ body {
         
 }
 
+#insta{
+    width: 70px;
+    margin: 3px 5px 0px 20px;
+    border-radius: 100%; 
+}
+
+#git{
+    width: 40px;
+    margin: 3px 5px 0px 10px;
+    border-radius: 100%;
+}
+
+.linkContatos{
+    color: black;
+}
+
+.hr1{
+    margin: -3px 0px 0px 0px;
+}
+
+.hr1{
+    margin: 3px 0px 0px 0px;
+}
+
 footer{
     position: absolute;
-    bottom: -190px;
+    bottom: -180%;
     background-color: white;
     color: gray;
     width: 97vw;
-    height: 10vh;
+    height: 15vh;
     text-align: center;
     text-align: bottom;
     line-height: 100px;
+}
+
+
+/* ESTILIZAÇÃO PORTFOLIO */
+
+.tituloPortfolio{
+    color: #fff;
+    text-align: center;
+    margin: 0px 200px 30px; 
+}
+
+#projetoPortfolio1{
+    display: inline;
+    max-width: 45%;
+    max-height: 45%;
+    margin: 10px 0px 20px 50px;
+    border: 3px solid #fff;
+}
+
+#projetoPortfolio1texto{
+    margin: -500px 0px 0px 0px;
+    float: right;
+    padding: 85px;
+}
+
+.linkLojaPortfolio1{
+    display: inline;
+    color: #fff;
+    float:right;
+    padding: 10px 80px 0px 0px;
+}
+#projetoPortfolio2{
+    display: inline;
+    max-width: 45%;
+    max-height: 45%;
+    margin: 20px;
+    margin: 10px 10px 20px 70px;
+    border: 5px solid #fff;
+    opacity: 1.0;
+    float:right;
+}
+#projetoPortfolio2texto{
+    margin: 40px 0px 0px 15px;
+    float: bottom right;
+}
+.linkLojaPortfolio2{
+    color: #fff;
+    float: right;
+    padding: 20px;
+}
+
+.logoTec{
+    display: inline;
+    width: 300px;
+    padding: 8%;
+    margin: -20px 0px 0px 25px;
+}
+
+.h2LogTec{
+    color: #fff;
+    margin: 35px 0px 0px 75px;
+}
+
+/* ESTILO CSS CONTATO */
+
+.tituloContato{
+    color: #fff; 
+    text-align: center;
+    margin: 30px -10px 60px 205px;
 }
