@@ -43,26 +43,10 @@ const verificaSeEMaior = function(a,b){
 // let anoDeNascimento = Number(prompt("Qual seu ano de nascimento?"))
 // let senhaDoUsuario = prompt("Escolha uma senha com no minimo 6 numeros.")
 // const nacionalidae = prompt("Qual sua nacionalidade?")
-// const nomeDoUsuario = "Sabrina"
-// let anoDeNascimento = 1996
-// let senhaDoUsuario = "labenu"
-// const nacionalidae = "brasileira"
 
 // anoDeNascimento = 2022 - anoDeNascimento
 // const cadastro = () => {
 //     const usuario = []
-
-    // if (anoDeNascimento >= 18){
-    //     return usuario.push(anoDeNascimento)
-    // }else if(senhaDoUsuario.length >= 6){
-    //     return usuario.push(senhaDoUsuario)
-    // }else if(nacionalidae === "brasileira"){
-    //     return usuario.push(nacionalidae)
-    // }else if (nomeDoUsuario == ){
-    //     return usuario.push(nomeDoUsuario)
-    // }else{
-    //     console.log("não pode cadastrar")
-    // }
     
 //     if (anoDeNascimento >= 18 && senhaDoUsuario.length >= 6 && nacionalidae === "brasileira"){
 //      console.log( usuario.push(nomeDoUsuario, anoDeNascimento, senhaDoUsuario,nacionalidae))
@@ -95,11 +79,11 @@ const login = () => {
 // const primeiraDose = () => {
    
 //     if (nomeVacina === "Coronavac"){
-//        return `Olá ${nome}! A próxima dose da ${nomeVacina} é daqui a ${tempo} dias. Compareça no posto na data ${data = "Dia 10 de Abril"}.`
+//        return `Olá ${nome}! A próxima dose da ${nomeVacina} é daqui a ${tempo = 28} dias. Compareça no posto na data ${data = "Dia 10 de Abril"}.`
 //     }else if(nomeVacina === "Astrazenica"){
-//         return `Olá ${nome}! A próxima dose da ${nomeVacina} é daqui a ${tempo} dias. Compareça no posto na data ${data = "Dia 11 de Julho"}.`
+//         return `Olá ${nome}! A próxima dose da ${nomeVacina} é daqui a ${tempo = 90} dias. Compareça no posto na data ${data = "Dia 11 de Julho"}.`
 //     }else{
-//         return `Olá ${nome}! A próxima dose da ${nomeVacina} é daqui a ${tempo} dias. Compareça no posto na data ${data = "Dia 10 de Julho"}.`
+//         return `Olá ${nome}! A próxima dose da ${nomeVacina} é daqui a ${tempo = 90} dias. Compareça no posto na data ${data = "Dia 10 de Julho"}.`
 //     }
 
 
@@ -179,49 +163,92 @@ const usuarios = [
 // }
 // (cadastroDesafio(nome,senha));
 
-const nomeDoUsuario = prompt("Qual seu nome?")
-let anoDeNascimento = Number(prompt("Qual seu ano de nascimento?"))
-let senhaDoUsuario = prompt("Escolha uma senha com no minimo 6 numeros.")
-const nacionalidae = prompt("Qual sua nacionalidade?")
-const nomeVacina = prompt("Qua o nome da sua primeira dose da vacina?")
-anoDeNascimento = 2022 - anoDeNascimento
-let obj = {}
-    const loginDesafio = () => {
-    if(anoDeNascimento >= 18 && senhaDoUsuario.length >= 6 && nacionalidae === "brasileira"){
-    obj = {
-        nome: nomeDoUsuario,
-        ano: anoDeNascimento,
-        nacionalidae: nacionalidae,
-        senha: senhaDoUsuario,
-        vacina: nomeVacina,
-        imunizacao: "incompleta"
-    }   
+// const nomeDoUsuario = prompt("Qual seu nome?")
+// let anoDeNascimento = Number(prompt("Qual seu ano de nascimento?"))
+// let senhaDoUsuario = prompt("Escolha uma senha com no minimo 6 numeros.")
+// const nacionalidae = prompt("Qual sua nacionalidade?")
+// const nomeVacina = prompt("Qua o nome da sua primeira dose da vacina?")
+// anoDeNascimento = 2022 - anoDeNascimento
+// let obj = {}
+// const loginDesafio = () => {
+//    if(anoDeNascimento >= 18 && senhaDoUsuario.length >= 6 && nacionalidae === "brasileira"){
+//     obj = {
+//         nome: nomeDoUsuario,
+//         ano: anoDeNascimento,
+//         nacionalidae: nacionalidae,
+//         senha: senhaDoUsuario,
+//         vacina: nomeVacina,
+//         imunizacao: "incompleta"
+//     }
 
-    }else{
-    console.log("Não foi possivel completar o cadastro");
-}
-    usuarios.push(obj)
-    return usuarios
-}
- console.log(loginDesafio(obj));
+    
+// }else{
+//     console.log("Não foi possivel completarar");
+// }
+//     usuarios.push(obj)
+//     return usuarios
+// }
+// console.log(loginDesafio(obj));
 
-if (anoDeNascimento >= 18 && senhaDoUsuario.length >= 6 && nacionalidae === "brasileira"){
-         console.log( usuario.push(nomeDoUsuario, anoDeNascimento, senhaDoUsuario,nacionalidae))
-        }else{
-            console.log("Não foi possivel completar o cadastro")
-        }
-        return usuario
-    }
 
-const primeiraDoseDesafio = () => {
-//  Sua lógica aqui
-}
+// const senha = prompt("Qual sua senha?")
+// const login = () => {
+//     if (senha === senhaDoUsuario){
+//         return "Usuário Logado"
+//     }else{
+//         return "Senha Invalida"
+//     }
+
+// }
+
+// console.log(login(senha));
+// const nome = prompt("Qual seu nome?")
+// const nomeVacina = prompt("Qua o nome da sua primeira dose da vacina?")
+// let anoDeNascimento = Number(prompt("Qual seu ano de nascimento?"))
+// let senhaDoUsuario = prompt("Escolha uma senha com no minimo 6 numeros.")
+// const nacionalidade = prompt("Qual sua nacionalidade?")
+// let tempo = ""
+// let data = ""
+
+// const primeiraDoseDesafio = () => {
+//     let novoUsuario = {...usuarios, 
+//         nome: `${nome}`, 
+//         ano: `${anoDeNascimento}`, 
+//         nacionalidade: `${nacionalidade}`,
+//         senha: `${senhaDoUsuario}`,
+//         vacina: "incompleta"
+//           }
+// }
+
+//     if (nomeVacina === "Coronavac"){
+//        return `Olá ${nome}! A próxima dose da ${nomeVacina} é daqui a ${tempo = 28} dias. Compareça no posto na data ${data = "Dia 10 de Abril"}.`
+//     }else if(nomeVacina === "Astrazenica"){
+//         return `Olá ${nome}! A próxima dose da ${nomeVacina} é daqui a ${tempo = 90} dias. Compareça no posto na data ${data = "Dia 11 de Julho"}.`
+//     }else{
+//         return `Olá ${nome}! A próxima dose da ${nomeVacina} é daqui a ${tempo = 90} dias. Compareça no posto na data ${data = "Dia 10 de Julho"}.`
+//     }
+// }
+
 // console.log(primeiraDoseDesafio())
-const segundaDoseDesafio = (nomeDoUsuario) => {
-    //  Sua lógica aqui
-}
-// console.log(segundaDoseDesafio("ALGUM NOME AQUI"));
+let nome = prompt("Qual seu nome?")
 
+const segundaDoseDesafio = (nomeDoUsuario) => {
+
+    if(nomeDoUsuario === usuarios.nome){
+        return {...usuarios, nomeDoUsuario, imunizacao: "completa"}
+    }
+}
+console.log(segundaDoseDesafio(nome));
+
+//const segundaDose = (nomeDoUsuario) => {
+//     const usuarios = [
+//         { nome: "Artur", imunizacao: "incompleta" },
+//         { nome: "Barbara", imunizacao: "incompleta" },
+//         { nome: "Carlos", imunizacao: "incompleta" }
+//     ]
+//     return {...usuarios, nomeDoUsuario, imunizacao: "completa"}
+// }
+// console.log(segundaDose("Barbara"));
 const avisoAosAtrasadosDesafio = () => {
     //  Sua lógica aqui
 }
