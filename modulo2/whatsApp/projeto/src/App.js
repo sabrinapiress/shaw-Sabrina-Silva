@@ -1,7 +1,10 @@
 //import logo from "./logo.svg";
 //import "./App.css";
-import React from "react";
+//import React from "react";
 import styled from "styled-components";
+import { render } from "@testing-library/react";
+import React, { useState } from "react";
+import "./App.css";
 
 const WhatsLab = styled.div `
 font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
@@ -14,7 +17,7 @@ class App extends React.Component {
     chat: [],
     valorInputNome: "",
     valorInputMsg: "",
-    onclick: false,
+    onClick: false,
   };
 
   conversa = () => {
@@ -40,10 +43,10 @@ class App extends React.Component {
   };
   render() {
     let listaDeComponentes = this.state.chat.map((pessoa) => {
-      if (this.state.onclick) {
+      if (this.state.onClick) {
         return (
           <div>
-            <spam>{pessoa.nome}</spam>:<spam>{pessoa.mensagem}</spam>
+            <span>{pessoa.nome}</span>:<span>{pessoa.mensagem}</span>
           </div>
         );
       }
@@ -54,16 +57,16 @@ class App extends React.Component {
         <Chat>
           <div>{listaDeComponentes}</div>
           <Input>
-            <input type= "text" className="inputNome">
+            <input type= "text" className="inputNome"
               value={this.state.valorInputNome}
               onChangeInputNome={this.onChangeInputNome}
               placeholder={"Nome"}
-            </input>
-            <input type= "text" className="inputMsg">
+            />
+            <input type= "text" className="inputMsg"
               value={this.state.valorInputMsg}
               onChangeInputNome={this.onChangeInputMsg}
               placeholder={"Mensagem"}
-            </input>
+            />
           </Input>
           <button onClick={this.conversa}>Enviar</button>
         </Chat>
