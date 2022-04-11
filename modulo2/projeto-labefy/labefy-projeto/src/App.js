@@ -1,6 +1,7 @@
 import React from "react";
-import TelaCriaPlaylist from "./Componentes/TelaCriaPlaylist";
-import TelaDetalhesPlaylist from "./Componentes/TelaDetalhesPlaylist";
+import TelaAdicionaMusica from "./Componentes/AdicionaMusica/TelaAdicionaMusica";
+import TelaCriaPlaylist from "./Componentes/CriarPlaylist/TelaCriaPlaylist";
+import TelaDetalhesPlaylist from "./Componentes/DetalhesPlaylist/TelaDetalhesPlaylist";
 
 export default class App extends React.Component {
   state = {
@@ -10,21 +11,28 @@ export default class App extends React.Component {
   escolheTela = () => {
     switch (this.state.telaAtual) {
       case "criar playlist":
-        return <TelaCriaPlaylist irParaDetalhePlaylist={this.irParaDetalhePlaylist} />;
-      case "detalhes":
-        return <TelaDetalhesPlaylist irParaCriarPlaylist={this.irParaCriarPlaylist} />;
+        return <TelaCriaPlaylist irParaPlaylist={this.irParaPlaylist} />;
+      case "playlist":
+        return <TelaDetalhesPlaylist irParaMusicaPlaylist={this.irParaMusicaPlaylist}/>;
+        case "adicionar musica":
+        return <TelaAdicionaMusica  irParaCriarPlaylist={this.irParaCriarPlaylist}/>;
       default:
         return <div>Erro!</div>;
     }
   };
-
+ 
   irParaCriarPlaylist = () => {
     this.setState({ telaAtual: "criar playlist" });
   };
 
-  irParaDetalhePlaylist = () => {
-    this.setState({ telaAtual: "detalhes" });
+  irParaPlaylist = () => {
+    this.setState({ telaAtual: "playlist" });
   };
+
+  irParaMusicaPlaylist = () => {
+    this.setState({ telaAtual : "adicionar musica"})
+  }
+
 
   render() {
 

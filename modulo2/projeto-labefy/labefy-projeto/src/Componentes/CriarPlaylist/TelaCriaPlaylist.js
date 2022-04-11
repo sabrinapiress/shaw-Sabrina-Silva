@@ -1,6 +1,9 @@
 import axios from "axios";
 import React from "react";
-import styled from "styled-components";
+import { ContainerCriaPlaylist, Input, ButtonCriar, ButtonDetalhesPlaylist } from "./styledCriarPlaylist"
+import styledComponents from "styled-components";
+
+
 
 const headers = {
   headers: {
@@ -45,24 +48,24 @@ export default class TelaCriaPlaylist extends React.Component {
 
   render() {
     return (
-      <div>
+      <ContainerCriaPlaylist>
         <h2>Crie sua Playlist</h2>
         <div>
-          <input
+          <Input
             placeholder={"Nome Playlist"}
             value={this.state.inputPlaylist}
             onChange={this.onChangePlaylist}
           />
         </div>
         <div>
-          <button onClick={this.postCreatePlaylist}>Criar</button>
+          <ButtonCriar onClick={this.postCreatePlaylist}>Criar</ButtonCriar>
         </div>
         <div>
-          <button onClick={this.props.irParaDetalhePlaylist}>
-            Detalhes Playlist
-          </button>
+          <ButtonDetalhesPlaylist onClick={this.props.irParaPlaylist}>
+            Detalhes Playlist Criadas
+          </ButtonDetalhesPlaylist>
         </div>
-      </div>
+      </ContainerCriaPlaylist>
     );
   }
 }
