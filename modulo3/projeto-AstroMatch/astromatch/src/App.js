@@ -1,84 +1,44 @@
-import react, { useState, useEffect } from "react";
-import like from "./assets/verificar.png";
-import noLike from "./assets/remover.png";
-import Header from "./Components/Header/Header";
-import {
-  AppContainer,
-  Profile,
-  ImgPerfil,
-  ImgLike,
-  ImgNoLike,
-  Button,
-} from "./styled";
-import axios from "axios";
-
-// const aluno = {
-//   Authorization: "sabrina-shaw",
-// };
-
-// const url =
-//   "https://us-central1-missao-newton.cloudfunctions.net/astroMatch/sabrina-shaw/person/";
+import react, { useState} from "react";
+import coracao from "./assets/chat.png";
+import voltar from "././assets/botao-voltar.jfif";
+import MatchList from "./Components/MatchList/MatchList";
+import { Person } from "./Components/Person/Person";
+import { AppContainer, HeaderContainer, ImgCoração, ImgVoltar, TitleH3, ContainerPai} from "./styled";
 
 const App = () => {
-  const [profile, setProfileList] = useState({});
+  const [telaAtual, setTelaAtual] = useState("tela inicial");
 
-  const getProfile = () => {
-    axios
-      .get(
-        `https://us-central1-missao-newton.cloudfunctions.net/astroMatch/sabrina-shaw/person`
-      )
-      .then((res) => {
-        setProfileList(res.data.profile);
-      })
-      .catch((err) => {
-        console.log(err.response);
-      });
+  const irParaListaMatch = () => {
+    if (telaAtual === "tela inicial") {
+      return <Person />;
+    } else {
+      return <MatchList />;
+    }
   };
 
-  const postChoosePerson = (id, boolean) => {
-    const body = {
-      id: id,
-      boolean: boolean,
-    };
-    axios
-      .post(
-        `https://us-central1-missao-newton.cloudfunctions.net/astroMatch/sabrina-shaw/choose-person`
-      )
-      .then(() => {
-        getProfile();
-      })
-      .catch((err) => {
-        console.log(err.response);
-      });
+  const goMatchList = (listaDeMatchs) => {
+    setTelaAtual(listaDeMatchs);
   };
-
-  useEffect(() => {
-    getProfile();
-  }, []);
-
   return (
+    <ContainerPai>
     <AppContainer>
-      <Header/>
-      <Profile>
-        {profile ? (
-          <div>
-            <ImgPerfil src={profile.photo} />
-            <p>
-              {profile.name} {profile.age}
-            </p>
-            <p>{profile.bio}</p>
-          </div>
+      <HeaderContainer>
+        <div>
+          <TitleH3>astromatch</TitleH3>
+        </div>
+        {telaAtual === "tela inicial" ? (
+          <ImgCoração
+            onClick={() => goMatchList("matches")}
+            src={coracao}
+            alt="Lista de Matchs"
+          />
         ) : (
-          <div>
-            <p>Sem mais perfis!</p>
-          </div>
+          <ImgVoltar onClick={() => goMatchList("tela inicial")} src={voltar} alt="Voltar" />
         )}
-      </Profile>
-      <Button>
-        <ImgLike onClick={()=> postChoosePerson(false)} src={noLike} alt="Like" />
-        <ImgNoLike onClick={()=> postChoosePerson(true)} src={like} alt="Deslike" />
-      </Button>
+      </HeaderContainer>
+      {irParaListaMatch()}
     </AppContainer>
+    </ContainerPai>
   );
 };
 
