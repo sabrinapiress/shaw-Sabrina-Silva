@@ -1,22 +1,17 @@
-import styled from "styled-components"
-
-const Container = styled.div`
-display: flex;
-flex-direction: column;
-align-items: center;
-border: solid 2px black;
-margin: 2rem;
-`
+import { Container } from "./style";
+import { useNavigate } from "react-router-dom"
+import { goBack, goToCreateTripPage, goToTripDetailsPage } from "../../routes/coordinator";
 
 const AdiminHomePage = ()=> {
+  const navigate = useNavigate()
 
     return (
       <Container>
       <h1>Painel Administrativo</h1>
-      <button>Voltar</button>
-      <button>Criar Viagem</button>
+      <button onClick={() => goBack(navigate)}>Voltar</button>
+      <button onClick={() => goToCreateTripPage(navigate)}>Criar Viagem</button>
       <button>Logout</button>
-      <p>Viagens</p>
+      <p onClick={() => goToTripDetailsPage(navigate)}>Viagens</p>
       <button>Lixeira</button>
       </Container>
     );

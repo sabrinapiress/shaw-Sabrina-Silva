@@ -1,14 +1,10 @@
-import styled from "styled-components";
+import { Container } from "./style";
+import { useNavigate } from "react-router-dom";
+import { goBack } from "../../routes/coordinator";
 
 const ApplicationFormPage = () => {
-  const Container = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border: solid 2px black;
-    margin: 2rem;
-  `;
-
+  const navigate = useNavigate()
+  
   return (
     <Container>
       <h1>Increva-se para uma viagem</h1>
@@ -22,7 +18,7 @@ const ApplicationFormPage = () => {
       <select name="Escolha uma Viagem">
         <option>Escolha um País</option>
       </select>
-      <button>Voltar</button>
+      <button onClick={() => goBack(navigate)}>Voltar</button>
       <button>Enviar</button>
     </Container>
   );

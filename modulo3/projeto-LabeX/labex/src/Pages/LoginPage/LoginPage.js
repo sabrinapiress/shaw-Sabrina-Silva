@@ -1,22 +1,16 @@
-import styled from "styled-components";
-
+import { Container } from "./style";
+import { useNavigate } from "react-router-dom"
+import { goBack, goToAdiminHomePage } from "../../routes/coordinator";
 const LoginPage = ()=> {
-
-  const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border: solid 2px black;
-  margin: 2rem;
-`;
+  const navigate = useNavigate()
 
     return (
       <Container>
        <h1>Login</h1>
        <input placeholder="E-mail"></input>
        <input placeholder="Senha"></input>
-       <button>Voltar</button>
-       <button>Entrar</button>
+       <button onClick={() => goBack(navigate)}>Voltar</button>
+       <button onClick={() => goToAdiminHomePage(navigate)}>Entrar</button>
       </Container>
     );
   }

@@ -1,19 +1,14 @@
-import styled from "styled-components";
+import { Container } from "./style";
+import { useNavigate } from "react-router-dom"
+import { goBack } from "../../routes/coordinator";
 
 const TripDetailsPage = ()=> {
-
-    const Container = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border: solid 2px black;
-    margin: 2rem;
-  `;
+const navigate = useNavigate()
 
     return (
       <Container>
           <div>Detalhes da viagem aqui</div>
-        <button>Voltar</button>
+          <button onClick={() => goBack(navigate)}>Voltar</button>
       </Container>
     );
   }

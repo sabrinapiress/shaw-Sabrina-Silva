@@ -1,20 +1,16 @@
-import styled from "styled-components"
-
-const Container = styled.div`
-display: flex;
-flex-direction: column;
-align-items: center;
-border: solid 2px black;
-margin: 2rem;
-`
+import { Container } from "./style";
+import { useNavigate } from "react-router-dom";
+import { goToListTripsPage, goToLoginPage } from "../../routes/coordinator";
 
 const HomePage = ()=> {
+  const navigate = useNavigate()
+ 
     return (
       <Container>
           <img/>
        <h1>LabeX - Viagens</h1>
-       <button>Ver Viagens</button>
-       <button>Área de Admin</button>
+       <button onClick={() => goToListTripsPage(navigate)}>Ver Viagens</button>
+       <button onClick={() => goToLoginPage(navigate)}>Área de Admin</button>
       </Container>
     );
   }

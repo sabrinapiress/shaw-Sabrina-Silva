@@ -1,14 +1,9 @@
-import styled from "styled-components";
+import { Container } from "./style";
+import { useNavigate } from "react-router-dom"
+import { goBack } from "../../routes/coordinator";
 
 const CreateTripPage = () => {
-
-    const Container = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border: solid 2px black;
-    margin: 2rem;
-  `;
+  const navigate = useNavigate()
 
   return (
     <Container>
@@ -20,7 +15,7 @@ const CreateTripPage = () => {
       <input placeholder="Data"></input>
       <input placeholder="Descrição"></input>
       <input placeholder="Duração em dias"></input>
-      <button>Voltar</button>
+      <button onClick={() => goBack(navigate)}>Voltar</button>
       <button>Criar</button>
     </Container>
   );
