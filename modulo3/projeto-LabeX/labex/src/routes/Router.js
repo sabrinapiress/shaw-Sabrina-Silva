@@ -6,6 +6,7 @@ import ListTripsPage from "../Pages/ListTripsPage/ListTripsPage";
 import LoginPage from "../Pages/LoginPage/LoginPage";
 import TripDetailsPage from "../Pages/TripDetailsPage/TripDetailsPage";
 import {BrowserRouter, Routes, Route} from "react-router-dom"
+import React from "react";
 
 
 export const Router = ()=> {

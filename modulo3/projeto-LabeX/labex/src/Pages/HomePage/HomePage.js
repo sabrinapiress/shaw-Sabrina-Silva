@@ -1,6 +1,7 @@
 import { Container } from "./style";
 import { useNavigate } from "react-router-dom";
 import { goToListTripsPage, goToLoginPage } from "../../routes/coordinator";
+import React from "react";
 
 const HomePage = ()=> {
   const navigate = useNavigate()

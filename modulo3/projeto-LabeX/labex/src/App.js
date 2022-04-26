@@ -1,4 +1,5 @@
-import { Router , useNavigate} from "./routes/Router";
+import { Router} from "./routes/Router";
+import React from "react";
 
 const App = ()=> {
 

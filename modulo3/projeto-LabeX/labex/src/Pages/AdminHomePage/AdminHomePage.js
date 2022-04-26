@@ -1,6 +1,7 @@
 import { Container } from "./style";
 import { useNavigate } from "react-router-dom"
 import { goBack, goToCreateTripPage, goToTripDetailsPage } from "../../routes/coordinator";
+import React from "react";
 
 const AdiminHomePage = ()=> {
   const navigate = useNavigate()
