@@ -2,9 +2,12 @@ import { Container } from "./style";
 import { useNavigate } from "react-router-dom"
 import { goBack } from "../../routes/coordinator";
 import React from "react";
+import { useProtectedPage } from "../../constant/constants";
 
 const CreateTripPage = () => {
   const navigate = useNavigate()
+
+  useProtectedPage()
 
   return (
     <Container>

@@ -1,10 +1,31 @@
 import { Container } from "./style";
 import { useNavigate } from "react-router-dom"
 import { goBack } from "../../routes/coordinator";
-import React from "react";
+import React, { useEffect } from "react";
+import axios from "axios";
+import { url } from "../../constant/constants";
+import { useProtectedPage } from "../../constant/constants";
+
 
 const TripDetailsPage = ()=> {
 const navigate = useNavigate()
+
+useProtectedPage()
+
+useEffect(()=> {
+  const token = localStorage.getItem('token')
+  axios.get(`${url}/trip/id`, {
+    headers: {
+      auth: token
+    }
+  })
+  .then((res)=>{
+    console.log(res.data)
+  })
+  .catch((err)=>{
+    console.log("Erro!", err.response);
+  })
+  }, [])
 
     return (
       <Container>

@@ -1,9 +1,9 @@
 export const goToListTripsPage = (navigate) =>{
-    navigate("/listTrips")
+    navigate("/Inicio/Lista-de-Viagens")
   }
 
 export const goToLoginPage = (navigate) => {
-    navigate("/loginPage")
+    navigate("/Login")
   }
 
 export const goBack = (navigate) =>{
@@ -11,17 +11,17 @@ export const goBack = (navigate) =>{
   }
 
 export  const goToCreateTripPage = (navigate) => {
-    navigate("/createTripPage")
+    navigate("/Area-Adiministrador/Criar-Viagem")
   }
 
 export const goToTripDetailsPage = (navigate) => {
-    navigate("/tripDetailsPage")
+    navigate("/Area-Adiministrador/Detalhes-Viagens")
   }
 
 export const goToApplicationFormPage = (navigate) => {
-    navigate("/applicationFormPage")
+    navigate("/Inicio/Listade-Viagens/Formulario-de-Inscricao")
   }
 
 export const goToAdiminHomePage = (navigate) =>{
-    navigate("/adiminHomePage")
+    navigate("/Area-Adiministrador", {replace:true})
   }

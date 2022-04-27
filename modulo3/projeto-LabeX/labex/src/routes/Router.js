@@ -15,12 +15,12 @@ export const Router = ()=> {
         <BrowserRouter>
         <Routes>
           <Route index element= {<HomePage/>}/>
-          <Route path="listTrips" element={<ListTripsPage/>}/>
-          <Route path="applicationFormPage" element={<ApplicationFormPage/>}/>
-          <Route path="loginPage" element={<LoginPage/>}/>
-          <Route path="adiminHomePage" element={<AdiminHomePage/>}/>
-          <Route path="tripDetailsPage" element={<TripDetailsPage/>}/>
-          <Route path="createTripPage" element={<CreateTripPage/>}/>
+          <Route path="/Inicio/Lista-de-Viagens" element={<ListTripsPage/>}/>
+          <Route path="/Inicio/Listade-Viagens/Formulario-de-Inscricao" element={<ApplicationFormPage/>}/>
+          <Route path="/Login" element={<LoginPage/>}/>
+          <Route path="/Area-Adiministrador" element={<AdiminHomePage/>}/>
+          <Route path="/Area-Adiministrador/Detalhes-Viagens" element={<TripDetailsPage/>}/>
+          <Route path="/Area-Adiministrador/Criar-Viagem" element={<CreateTripPage/>}/>
         </Routes>
         </BrowserRouter>
     )
