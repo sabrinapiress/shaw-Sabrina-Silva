@@ -1,6 +1,10 @@
 import { Router} from "./routes/Router";
 import React from "react";
+import styled from "styled-components"
 
+const Container = styled.div`
+margin: auto;
+`
 const App = ()=> {
   document.title = "LabeX Viagens"
 
@@ -19,9 +23,9 @@ const App = ()=> {
   // }
   
   return (
-    <div>
+    <Container>
       <Router/>
-    </div>
+    </Container>
   );
 }
 

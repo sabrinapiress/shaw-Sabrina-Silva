@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 export const url =
@@ -16,3 +16,18 @@ export const useProtectedPage = () => {
     }
   }, []);
 };
+
+export const lugares = [
+  "Mercúrio",
+  "Vênus",
+  "Marte",
+  "Júpter",
+  "Saturno",
+  "Urano",
+  "Netuno",
+  "Estrela T Tauri",
+  "Sistema Planetario Kepler-18",
+  "Quasar APM 08279+5255"
+]
+
+export const token = localStorage.getItem('token')

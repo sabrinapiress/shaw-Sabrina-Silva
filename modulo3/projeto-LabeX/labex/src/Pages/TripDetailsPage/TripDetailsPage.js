@@ -4,7 +4,7 @@ import { goBack } from "../../routes/coordinator";
 import React, { useEffect } from "react";
 import axios from "axios";
 import { url } from "../../constant/constants";
-import { useProtectedPage } from "../../constant/constants";
+import { useProtectedPage , token} from "../../constant/constants";
 
 
 const TripDetailsPage = ()=> {
@@ -13,7 +13,7 @@ const navigate = useNavigate()
 useProtectedPage()
 
 useEffect(()=> {
-  const token = localStorage.getItem('token')
+  // const token = localStorage.getItem('token')
   axios.get(`${url}/trip/id`, {
     headers: {
       auth: token

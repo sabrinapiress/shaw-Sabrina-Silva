@@ -1,23 +1,18 @@
-import { Container , Button} from "./style";
+import { Container, Button } from "./style";
 import { useNavigate } from "react-router-dom";
 import { goBack } from "../../routes/coordinator";
-import { url} from "../../constant/constants";
+import { url } from "../../constant/constants";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 const ApplicationFormPage = () => {
   const [tripList, setTripList] = useState([]);
-  // const [form, setForm] = useState({
-  //   "nome": "",
-  //   "idade": "",
-  //   "candidatura": "",
-  //   "profissão": "",
-  // });
-  const [nome, setNome] = useState()
-  const [idade, setIdade] = useState()
-  const [candidatura, setCandidatura] = useState()
-  const [profissao, setProfissao] = useState()
-  const [id, setId] = useState()
+  const [nome, setNome] = useState("");
+  const [idade, setIdade] = useState();
+  const [candidatura, setCandidatura] = useState("");
+  const [profissao, setProfissao] = useState("");
+  const [id, setId] = useState("");
+  const [pais, setPais] = useState("");
 
   const navigate = useNavigate();
 
@@ -38,97 +33,96 @@ const ApplicationFormPage = () => {
 
   const postApplyToTrip = () => {
     const body = {
-      name: "",
-      age: "",
-      applicationText: "",
-      profession: "",
-      country: ""
-    }
+      name: nome,
+      age: idade,
+      applicationText: candidatura,
+      profession: profissao,
+      country: pais,
+    };
     axios
-    .post (`${url}/trips/${id}`, body)
-    .then((res)=>{
-      console.log(res.data);
-      setNome(res.data.trip)
-      setIdade(res.data.trip)
-      setCandidatura(res.data.trip)
-      setProfissao(res.data.trip)
-    })
-    .catch((err)=>{
-      alert("Erro!", err.response)
-    })
-  }
+      .post(`${url}/trips/${id}/apply`, body)
+      .then((res) => {
+        setNome("");
+        setIdade("");
+        setCandidatura("");
+        setProfissao("");
+        setPais("");
+      })
+      .catch((err) => {
+        alert(err.response);
+      });
+  };
   const onChangeNome = (event) => {
-    setNome(event.target.value)
-  }
-  
+    setNome(event.target.value);
+  };
+
   const onChangeIdade = (event) => {
-    setIdade(event.target.value)
-  }
-  
+    setIdade(event.target.value);
+  };
+
   const onChangeCandidatura = (event) => {
-    setCandidatura(event.target.value)
-  }
-  
+    setCandidatura(event.target.value);
+  };
+
   const onChangeProfissao = (event) => {
-    setProfissao(event.target.value)
-  }
+    setProfissao(event.target.value);
+  };
+
+  const onChangePais = (event) => {
+    setPais(event.target.value);
+  };
+
+  const onChangeId = (event) => {
+    setId(event.target.value);
+  };
 
   const renderList = tripList ? (
     tripList.map((trips) => {
-      return <option onClick={()=>setId(trips.id)}>{trips.name}</option>;
+      return <option value={trips.id}>{trips.name}</option>;
     })
   ) : (
     <p>Erro! Sem viagens</p>
   );
 
-  // const onChangeForm = (event) => {
-  //   if(event.target.getAtribute("name")=="fnome"){
-  //     setForm({"nome":event.target.value, "idade":form.idade, "candidatura": form.candidatura, "profissão": form.profissão})
-  //   }else if(event.target.getAtribute("name")=="fidade"){
-  //     setForm({"nome":form.nome, "idade":event.target.value, "candidatura": form.candidatura, "profissão": form.profissão})
-  //   }else if(event.target.getAtribute("name")=="fcandidatura"){
-  //     setForm({"nome":form.nome, "idade":form.idade, "candidatura": event.target.value, "profissão": form.profissão})
-  //   }else if(event.target.getAtribute("name")=="fprofissao"){
-  //     setForm({"nome":form.nome, "idade":form.idade, "candidatura": form.candidatura, "profissão": event.target.value})
-  //   }
-  // };
-
   return (
     <Container>
       <h1>Increva-se para uma viagem</h1>
-      <select name="Viagens">{renderList}</select>
+      <select name="Viagens" onChange={onChangeId}>
+        <option>Escolha uma viagem</option>
+        {renderList}
+      </select>
       <input
         placeholder="Nome"
-        // name="fnome"
         type="text"
         value={nome}
         onChange={onChangeNome}
+        required
       ></input>
       <input
         placeholder="Idade"
-        // name="fidade"
-        type="text"
+        type="number"
         value={idade}
         onChange={onChangeIdade}
+        required
       ></input>
       <input
         placeholder="Texto de Candidatura"
-        // name="fcandidatura"
         type="text"
         value={candidatura}
         onChange={onChangeCandidatura}
+        pattern={"^.{3,}"}
+        tite="Minimo 20 caracteres"
       ></input>
       <input
         placeholder="Profissão"
-        // name="fprofissao"
         type="text"
         value={profissao}
         onChange={onChangeProfissao}
+        required
       ></input>
-      <select name="paises" id="paises">
-        <option value="Brasil" selected="selected">
-          Brasil
-        </option>
+      <select onChange={onChangePais}>
+        <option>Escolha um Pais</option>
+        <option value="Brasil">Brasil</option>
         <option value="Afeganistão">Afeganistão</option>
         <option value="África do Sul">África do Sul</option>
         <option value="Albânia">Albânia</option>
@@ -404,8 +398,8 @@ const ApplicationFormPage = () => {
         <option value="Zâmbia">Zâmbia</option>
       </select>
       <Button>
-      <button onClick={() => goBack(navigate)}>Voltar</button>
-      <button onClick={() => postApplyToTrip()}>Enviar</button>
+        <button onClick={() => goBack(navigate)}>Voltar</button>
+        <button onClick={() => postApplyToTrip()}>Enviar</button>
       </Button>
     </Container>
   );
