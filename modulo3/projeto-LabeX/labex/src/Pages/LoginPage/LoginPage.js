@@ -1,9 +1,11 @@
-import { Container } from "./style";
+import { Container, Header, Logo, I, Title, Inputs, Img, DivInput} from "./style";
 import { useNavigate } from "react-router-dom"
-import { goBack,} from "../../routes/coordinator";
+import { goBack, goToHomePage} from "../../routes/coordinator";
 import React, {useState} from "react";
+import gif1 from "../../assets/gif1.gif"
 import axios from "axios"
 import { url } from "../../constant/constants";
+import img from "../../assets/28.jpg"
 
 const LoginPage = ()=> {
   const navigate = useNavigate()
@@ -40,17 +42,27 @@ const LoginPage = ()=> {
   }
 
     return (
-      <Container>
+      <div>
+       <Header>
+       <Logo onClick={()=>goToHomePage(navigate)} src={gif1}/>
+       <Title>Labe<span> <I>X</I></span> Viagens</Title>
+       <button onClick={() => goBack(navigate)}>Voltar</button>
+       </Header>
+       <Img src={img}/>
+       <Container>
+      <div>
+     
+       </div>
+       <DivInput>
        <h1>Login</h1>
        <form onSubmit={onSubmit}>
-       <input placeholder="E-mail" 
+       <Inputs placeholder="E-mail" 
        type ="email"
        value={email}
        onChange={onChangeEmail}
        required
-      //  pattern= {"[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"} tite="E-mail invalido!"
        />
-       <input placeholder="Senha"
+       <Inputs placeholder="Senha"
         type ="password"
         value={senha}
         onChange={onChangeSenha}
@@ -58,11 +70,11 @@ const LoginPage = ()=> {
         pattern={"^.{5,}"}
         title={"Senha deve conter mais de 8 digitos"}
         />
-       
        <button >Entrar</button>
        </form>
-       <button onClick={() => goBack(navigate)}>Voltar</button>
-      </Container>
+       </DivInput>
+       </Container>
+      </div>
     );
   }
   

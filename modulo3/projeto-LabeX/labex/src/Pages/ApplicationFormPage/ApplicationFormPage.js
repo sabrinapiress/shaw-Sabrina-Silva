@@ -83,7 +83,7 @@ const ApplicationFormPage = () => {
   ) : (
     <p>Erro! Sem viagens</p>
   );
-
+ 
   return (
     <Container>
       <h1>Increva-se para uma viagem</h1>
@@ -110,7 +110,7 @@ const ApplicationFormPage = () => {
         type="text"
         value={candidatura}
         onChange={onChangeCandidatura}
-        pattern={"^.{3,}"}
+        pattern={"^.{20,}"}
         tite="Minimo 20 caracteres"
       ></input>
       <input
@@ -405,4 +405,4 @@ const ApplicationFormPage = () => {
   );
 };
 
-export default ApplicationFormPage;
+export default ApplicationFormPage 

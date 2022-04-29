@@ -1,5 +1,7 @@
-import { useEffect } from "react";
+import React ,{ useEffect , useState} from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { onChangeId } from "../Pages/ApplicationFormPage/ApplicationFormPage";
 
 export const url =
   "https://us-central1-labenu-apis.cloudfunctions.net/labeX/sabrina-pires-shaw";
@@ -31,3 +33,33 @@ export const lugares = [
 ]
 
 export const token = localStorage.getItem('token')
+
+export const IdApply = ()=>{
+  const [tripList, setTripList] = useState([]);
+
+  const getTrip = () => {
+    axios
+      .get(`${url}/trips`)
+      .then((res) => {
+        setTripList(res.data.trips);
+      })
+      .catch((err) => {
+        alert("Erro!", err);
+      });
+  };
+
+  useEffect(() => {
+    getTrip();
+  }, []);
+
+  const renderId = tripList ? (
+    tripList.map((trips) => {
+        return trips.id
+    })
+  ) : (
+    <p>Erro! Sem viagens</p>
+  );
+
+  renderId()
+
+}

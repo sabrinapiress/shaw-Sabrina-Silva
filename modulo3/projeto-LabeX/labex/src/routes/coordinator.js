@@ -25,3 +25,7 @@ export const goToApplicationFormPage = (navigate) => {
 export const goToAdiminHomePage = (navigate) =>{
     navigate("/Area-Adiministrador", {replace:true})
   }
+
+export const goToHomePage = (navigate) =>{
+    navigate("/Inicio")
+  }
