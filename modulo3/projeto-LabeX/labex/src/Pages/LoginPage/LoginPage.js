@@ -1,11 +1,10 @@
-import { Container, Header, Logo, I, Title, Inputs, Img, DivInput} from "./style";
+import { Container,  Logo, I, Title, Inputs, Img, DivInput, ContainerPai} from "./style";
 import { useNavigate } from "react-router-dom"
-import { goBack, goToHomePage} from "../../routes/coordinator";
 import React, {useState} from "react";
-import gif1 from "../../assets/gif1.gif"
 import axios from "axios"
 import { url } from "../../constant/constants";
 import img from "../../assets/28.jpg"
+import { Headers } from "../../components/Header";
 
 const LoginPage = ()=> {
   const navigate = useNavigate()
@@ -42,17 +41,10 @@ const LoginPage = ()=> {
   }
 
     return (
-      <div>
-       <Header>
-       <Logo onClick={()=>goToHomePage(navigate)} src={gif1}/>
-       <Title>Labe<span> <I>X</I></span> Viagens</Title>
-       <button onClick={() => goBack(navigate)}>Voltar</button>
-       </Header>
+      <ContainerPai>
+       <Headers/>
        <Img src={img}/>
        <Container>
-      <div>
-     
-       </div>
        <DivInput>
        <h1>Login</h1>
        <form onSubmit={onSubmit}>
@@ -74,7 +66,7 @@ const LoginPage = ()=> {
        </form>
        </DivInput>
        </Container>
-      </div>
+      </ContainerPai>
     );
   }
   

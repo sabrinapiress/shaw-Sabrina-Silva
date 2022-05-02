@@ -1,9 +1,9 @@
 import { Container, Button } from "./style";
 import { useNavigate } from "react-router-dom";
-import { goBack } from "../../routes/coordinator";
 import { url } from "../../constant/constants";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { Headers } from "../../components/Header";
 
 const ApplicationFormPage = () => {
   const [tripList, setTripList] = useState([]);
@@ -85,12 +85,10 @@ const ApplicationFormPage = () => {
   );
  
   return (
+    <div>
+    <Headers/>
     <Container>
       <h1>Increva-se para uma viagem</h1>
-      <select name="Viagens" onChange={onChangeId}>
-        <option>Escolha uma viagem</option>
-        {renderList}
-      </select>
       <input
         placeholder="Nome"
         type="text"
@@ -120,6 +118,10 @@ const ApplicationFormPage = () => {
         onChange={onChangeProfissao}
         required
       ></input>
+      <select name="Viagens" onChange={onChangeId}>
+        <option>Escolha uma viagem</option>
+        {renderList}
+      </select>
       <select onChange={onChangePais}>
         <option>Escolha um Pais</option>
         <option value="Brasil">Brasil</option>
@@ -398,10 +400,10 @@ const ApplicationFormPage = () => {
         <option value="Zâmbia">Zâmbia</option>
       </select>
       <Button>
-        <button onClick={() => goBack(navigate)}>Voltar</button>
         <button onClick={() => postApplyToTrip()}>Enviar</button>
       </Button>
     </Container>
+    </div>
   );
 };
 

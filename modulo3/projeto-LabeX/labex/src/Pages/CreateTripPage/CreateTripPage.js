@@ -9,6 +9,7 @@ import {
   token,
 } from "../../constant/constants";
 import axios from "axios";
+import { Headers } from "../../components/Header";
 
 const CreateTripPage = () => {
   const navigate = useNavigate();
@@ -18,13 +19,13 @@ const CreateTripPage = () => {
   const [duracao, setDuracao] = useState("");
   useProtectedPage();
 
-  const formateDate = () => { 
-    const dia = data.slice(8, 10)
-    const mes = data.slice(5, 7)
-    const ano = data.slice(0, 4)
-    const newDate = `${dia}/${mes}/${ano}`
-    return newDate
-  }
+  const formateDate = () => {
+    const dia = data.slice(8, 10);
+    const mes = data.slice(5, 7);
+    const ano = data.slice(0, 4);
+    const newDate = `${dia}/${mes}/${ano}`;
+    return newDate;
+  };
 
   const postCreateTrip = () => {
     const body = {
@@ -34,12 +35,11 @@ const CreateTripPage = () => {
       description: descricao,
       durationInDays: duracao,
     };
-;
     axios
       .post(`${url}/trips`, body, {
         headers: {
-          auth: token
-        }
+          auth: token,
+        },
       })
       .then(() => {
         setNome("");
@@ -50,7 +50,7 @@ const CreateTripPage = () => {
       .catch((err) => {
         alert(err.response);
       });
-  }; 
+  };
 
   const onChangeNome = (event) => {
     setNome(event.target.value);
@@ -69,51 +69,54 @@ const CreateTripPage = () => {
   };
 
   const renderLugares = lugares ? (
-    lugares.map((trips)=>{
-      return <option key={trips}>{trips}</option>
+    lugares.map((trips) => {
+      return <option key={trips}>{trips}</option>;
     })
   ) : (
     <p>Erro!</p>
-  )
+  );
 
   return (
-    <Container>
-      <h1>Criar Viagem</h1>
-      <input
-        placeholder="Nome"
-        onChange={onChangeNome}
-        type="text"
-        value={nome}
-        required
-      ></input>
-      <input
-        placeholder="Data"
-        onChange={onChangeData}
-        type="date"
-        value={data}
-        required
-      ></input>
-      <input
-        placeholder="Descrição"
-        onChange={onChangeDescricao}
-        type="text"
-        value={descricao}
-        required
-      ></input>
-      <input
-        placeholder="Duração em dias"
-        onChange={onChangeDuracao}
-        type="number"
-        value={duracao}
-        required
-      ></input>
-      <select name="Escolha uma Viagem">
-        <option>Escolha um Planeta</option>
-        {renderLugares}
-      </select>
-      <button onClick={() =>postCreateTrip()}>Criar</button>
-      <button onClick={() => goBack(navigate)}>Voltar</button>
-    </Container>
+    <div>
+      <Headers />
+      <Container>
+        <h1>Criar Viagem</h1>
+        <input
+          placeholder="Nome"
+          onChange={onChangeNome}
+          type="text"
+          value={nome}
+          required
+        ></input>
+        <input
+          placeholder="Data"
+          onChange={onChangeData}
+          type="date"
+          value={data}
+          required
+        ></input>
+        <input
+          placeholder="Descrição"
+          onChange={onChangeDescricao}
+          type="text"
+          value={descricao}
+          required
+        ></input>
+        <input
+          placeholder="Duração em dias"
+          onChange={onChangeDuracao}
+          type="number"
+          value={duracao}
+          required
+        ></input>
+        <select name="Escolha uma Viagem">
+          <option>Escolha um Planeta</option>
+          {renderLugares}
+        </select>
+        <button onClick={() => postCreateTrip()}>Criar</button>
+        <button onClick={() => goBack(navigate)}>Voltar</button>
+      </Container>
+    </div>
   );
 };
 

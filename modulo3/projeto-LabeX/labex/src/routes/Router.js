@@ -12,7 +12,7 @@ import React from "react";
 export const Router = ()=> {
     
     return(
-        <BrowserRouter>
+        <BrowserRouter> 
         <Routes>
           <Route index element= {<HomePage/>}/>
           <Route path="/Inicio" element={<HomePage/>}/>
@@ -20,9 +20,11 @@ export const Router = ()=> {
           <Route path="/Inicio/Listade-Viagens/Formulario-de-Inscricao" element={<ApplicationFormPage/>}/>
           <Route path="/Login" element={<LoginPage/>}/>
           <Route path="/Area-Adiministrador" element={<AdiminHomePage/>}/>
-          <Route path="/Area-Adiministrador/Detalhes-Viagens" element={<TripDetailsPage/>}/>
-          <Route path="/Area-Adiministrador/Criar-Viagem" element={<CreateTripPage/>}/>
+          <Route path="/Area-Adiministrador/Detalhes-Viagens/:id" element={<TripDetailsPage/>}/>
+          <Route path="/Area-Adiministrador/Criar-Viagem" element={<CreateTripPage/>}/>         
         </Routes>
         </BrowserRouter>
     )
 }
+
+//VCgd4LjojvSSzlyKJbfD -- id

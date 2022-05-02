@@ -1,10 +1,12 @@
-import { Container, CardTrips } from "./style";
+import { Container, CardTrips, ContainerPai, Img, Button } from "./style";
 import { useNavigate } from "react-router-dom";
-import { goBack, goToApplicationFormPage } from "../../routes/coordinator";
+import { goToApplicationFormPage } from "../../routes/coordinator";
 import axios from "axios";
 import { url } from "../../constant/constants";
 import { useEffect, useState } from "react";
 import React from "react";
+import { Headers } from "../../components/Header";
+import img from "../../assets/1 (2).png"
 
 const ListTripsPage = () => {
   const [tripList, setTripList] = useState([]);
@@ -34,6 +36,9 @@ const ListTripsPage = () => {
           <p>Planeta: {trips.planet}</p>
           <p>Tempo de viajem: {trips.durationInDays} dias</p>
           <p>Data de Embarque: {trips.date}</p>
+          <Button onClick={() => goToApplicationFormPage(navigate)}>
+        Inscrever-se
+      </Button>
         </CardTrips>
       );
     })
@@ -42,14 +47,14 @@ const ListTripsPage = () => {
   );
 
   return (
-    <Container>
-      <h1>Lista de Viagens</h1>
+    <ContainerPai>
+      <Headers/>
+      <Img src={img}/>
+      <Container>
+      <h1>Viagens</h1>
       <div>{renderList}</div>
-      <button onClick={() => goBack(navigate)}>Voltar</button>
-      <button onClick={() => goToApplicationFormPage(navigate)}>
-        Inscrever-se
-      </button>
     </Container>
+    </ContainerPai>
   );
 };
 

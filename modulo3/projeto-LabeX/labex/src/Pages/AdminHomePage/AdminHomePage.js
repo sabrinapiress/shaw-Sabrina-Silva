@@ -1,71 +1,74 @@
-import { Container } from "./style";
+import { Container,  CardTrips, IconeLixeira } from "./style";
 import { useNavigate } from "react-router-dom";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect} from "react";
 import { useProtectedPage, url, token } from "../../constant/constants";
+import { Headers } from "../../components/Header";
+import img from "../../assets/lixeira.png"
 import axios from "axios";
 import {
   goToCreateTripPage,
   goToTripDetailsPage,
+  goToLoginPage
 } from "../../routes/coordinator";
+
 
 const AdiminHomePage = () => {
   const navigate = useNavigate();
+  // 
   useProtectedPage();
   const [id, setId] = useState("");
-  let dd = useRequestData("/trips", {})
+  // let dd = useRequestData("/trips", {})
 
-  // const [tripList, setTripList] = useState([]);
-  // const getTrip = () => {
-  //   axios
-  //     .get(`${url}/trips`)
-  //     .then((res) => {
-  //       setTripList(res.data.trips);
-  //     })
-  //     .catch((err) => {
-  //       alert("Erro!", err);
-  //     });
-  // };
+  const [tripList, setTripList] = useState([]);
+  const getTrip = () => {
+    axios
+      .get(`${url}/trips`)
+      .then((res) => {
+        setTripList(res.data.trips);
+      })
+      .catch((err) => {
+        alert("Erro!", err);
+      });
+  };
 
   useEffect(() => {
     getTrip();
   }, []);
 
-  const deleteTrip = () =>{
+  const deleteTrip = async (id) =>{
     axios
-    .del(`${url}/trips/${id}`, {
+    .delete(`${url}/trips/${id}`, {
       headers: {
         auth: token
       }
     })
-  
     .then(()=>{
-      window.confirm(`Tem certeza que deseja deletar a viagem ${tripList.name}?`)
-      setTripList([])
+     window.confirm(`Tem certeza que deseja deletar a viagem ${tripList.name}?`)
+     getTrip()
+     alert("Viagem excluida!")
     })
     .catch((err)=>{
-      console.log("Erro!", err.response)
+      alert("Erro!", err.response)
     })
   }
   const onChangeId = (event) => {
     setId(event.target.value);
   };
-
-  // const deleteTrip = () => {
-  //   window.confirm(`Tem certeza que deseja deletar a viagem ${tripList.name}?`);
-  //   setTripList([]);
-  // };
+  
+  const logOut = () => {
+    window.localStorage.removeItem('token')
+    goToLoginPage(navigate)
+  }
 
   const renderList = tripList ? (
     tripList.map((trips) => {
       return (
-        <div>
-          <div value={trips.id}>
-            <p onClick={() => goToTripDetailsPage(navigate)}>{trips.name}</p>
+        <CardTrips>
+          <div value={trips.id} onClick={() => goToTripDetailsPage(navigate, trips.id)}>
+            <p>{trips.name}</p>
           </div>
-          <button onClick={() => deleteTrip()} >
-            Lixeira
-          </button>
-        </div>
+          <IconeLixeira onClick={() => deleteTrip(trips.id)}  src={img}/>
+        </CardTrips>
       );
     })
   ) : (
@@ -74,10 +77,11 @@ const AdiminHomePage = () => {
 
   return (
     <Container>
+      <Headers/>
       <h1>Painel Administrativo</h1>
       <button onClick={() => goToCreateTripPage(navigate)}>Criar Viagem</button>
-      <button>Logout</button>
       <div onChange={onChangeId}>{renderList}</div>
+      <button onClick={goToLoginPage}>Logout</button>
     </Container>
   );
 };

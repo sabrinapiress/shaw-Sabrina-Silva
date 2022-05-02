@@ -1,7 +1,6 @@
 import React ,{ useEffect , useState} from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { onChangeId } from "../Pages/ApplicationFormPage/ApplicationFormPage";
 
 export const url =
   "https://us-central1-labenu-apis.cloudfunctions.net/labeX/sabrina-pires-shaw";
@@ -20,7 +19,6 @@ export const useProtectedPage = () => {
 };
 
 export const lugares = [
-  "Mercúrio",
   "Vênus",
   "Marte",
   "Júpter",

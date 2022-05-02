@@ -4,6 +4,40 @@ export const Container = styled.div`
 display: flex;
 flex-direction: column;
 align-items: center;
-border: solid 2px black;
-margin: 2rem;
+padding-top: 4rem;
+select{
+width: 45.6%;
+height: 3rem;
+font-size: 1.1rem;
+margin-bottom: 2rem;
+border: solid 2px gray;
+}
+input{
+width: 45%;
+height: 2.2rem;
+font-size: 1.1rem;
+margin-bottom: 2rem;
+border-top: none;
+border-left: none;
+border-right: none;
+}
+button{
+    width: 7.3rem;
+    height: 2.2rem;
+    border-radius: 1rem;
+    border: solid 1px black;
+    color: #01dfd7;
+    background-color: #e6e6e6;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+    font-size: 17px;
+    cursor: pointer;
+    transition: 0.2s;
+    :hover {
+      width: 7.4rem;
+      height: 2.3rem;
+      background-color: #00ffff;
+      color: #fff;
+    }
+}
 `

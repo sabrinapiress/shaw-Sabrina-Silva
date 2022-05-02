@@ -14,8 +14,8 @@ export  const goToCreateTripPage = (navigate) => {
     navigate("/Area-Adiministrador/Criar-Viagem")
   }
 
-export const goToTripDetailsPage = (navigate) => {
-    navigate("/Area-Adiministrador/Detalhes-Viagens")
+export const goToTripDetailsPage = (navigate, id) => {
+    navigate(`/Area-Adiministrador/Detalhes-Viagens/${id}`)
   }
 
 export const goToApplicationFormPage = (navigate) => {
