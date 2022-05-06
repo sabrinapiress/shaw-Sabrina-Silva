@@ -1,23 +1,17 @@
-import AdiminHomePage from "./Pages/AdminHomePage/AdminHomePage";
-import ApplicationFormPage from "./Pages/ApplicationFormPage/ApplicationFormPage";
-import CreateTripPage from "./Pages/CreateTripPage/CreateTripPage";
-import HomePage from "./Pages/HomePage/HomePage";
-import ListTripsPage from "./Pages/ListTripsPage/ListTripsPage";
-import LoginPage from "./Pages/LoginPage/LoginPage";
-import TripDetailsPage from "./Pages/TripDetailsPage/TripDetailsPage";
+import { Router} from "./routes/Router";
+import React from "react";
+import styled from "styled-components"
 
-
+const Container = styled.div`
+margin: auto;
+`
 const App = ()=> {
+  document.title = "LabeX Viagens"
+  
   return (
-    <div>
-      <HomePage/>
-      <ListTripsPage/>
-      <ApplicationFormPage/>
-      <LoginPage/>
-      <AdiminHomePage/>
-      <TripDetailsPage/>
-      <CreateTripPage/>
-    </div>
+    <Container>
+      <Router/>
+    </Container>
   );
 }
 
