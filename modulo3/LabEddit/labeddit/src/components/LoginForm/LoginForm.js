@@ -1,5 +1,8 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { useForm } from "../../hooks/useForm";
+import { goFeedPage } from "../../Routes/coordinator";
+import { login } from "../../services/appAccess";
 import {
   ContainerForm,
   InputEmail,
@@ -9,10 +12,10 @@ import {
 
 export const LoginForm = () => {
   const [form, onChangeInput, clear] = useForm({ email: "", password: "" });
-
+  const navigate = useNavigate()
   const onSubmitForm = (event) => {
-      console.log(form);
     event.preventDefault();
+    login(form, clear, navigate)
   };
 
   return (

@@ -5,11 +5,13 @@ export const useForm = (initialState) => {
 
     const onChangeInput = (event) => {
     const {value, name} = event.target
-    setForm({...FormData, [name]: value})
+    setForm({...form, [name]: value})
 }
     const clear = () => {
         setForm(initialState)
     }
 
-    return [form,onChangeInput,clear]
+    return [form, onChangeInput, clear]
 }
+
+//hook para setar o estado do Formulario

@@ -4,9 +4,11 @@ import { goToRegistrationPage } from "../../Routes/coordinator";
 import { ContainerTitle, ImgLogo, RegistrationButton } from "./styled";
 import Logo from "../../assets/logo-1.png";
 import { LoginForm } from "../../components/LoginForm/LoginForm";
+import { useUnprotectedPage } from "../../hooks/useUnprotectedPage";
 
 export const LoginPage = () => {
   const navigate = useNavigate();
+  useUnprotectedPage()
 
   return (
     <div>
