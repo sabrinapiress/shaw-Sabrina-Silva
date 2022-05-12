@@ -1,11 +1,26 @@
 import styled from "styled-components";
 
-export const ContainerFeed = styled.div`
+export const ContainerFeed = styled.form`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   margin-top: 1rem;
+`;
+
+
+export const TextAreaTitle = styled.input`
+  background-color: #ededed;
+  border-radius: 12px;
+  text-decoration: none;
+  border: none;
+  width: 85%;
+  height: 4vh;
+  font-family: 'IBM Plex Sans';
+  margin-bottom: 8px;
+  ::placeholder {
+    padding: 0.5rem;
+  }
 `;
 
 export const TextAreaPost = styled.textarea`
@@ -15,8 +30,9 @@ export const TextAreaPost = styled.textarea`
   border: none;
   width: 85%;
   height: 20vh;
+  font-family: 'IBM Plex Sans';
   ::placeholder {
-    padding: 1rem;
+    padding: 0.5rem;
   }
 `;
 
@@ -28,6 +44,8 @@ export const PostButton = styled.button`
   border-radius: 12px;
   color: #fff;
   margin-top: 1rem;
+  font-family: 'IBM Plex Sans';
+  font-size: 20px;
   cursor: pointer;
 `;
 
@@ -36,3 +54,9 @@ export const Hr = styled.hr`
   border-color: #f9b24e;
   color:#f9b24e;
 `;
+
+export const LoadingFeed = styled.img`
+width: 6rem;
+margin-left: 9.5rem;
+margin-top: 3rem;
+`

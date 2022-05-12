@@ -23,4 +23,5 @@ color: #FE7E02;
 background-color: #fff;
 border: solid 2px #FE7E02;
 cursor: pointer;
+margin-bottom: 15rem;
 `

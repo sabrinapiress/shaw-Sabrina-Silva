@@ -29,6 +29,10 @@ border: solid 2px #E6E6E6;
 
 export const ContractP = styled.p`
 margin-top: 4rem;
+margin-left: 1rem;
+`
+export const CheckBox = styled.div`
+margin-left: 1rem;
 `
 export const B = styled.b`
 color: #2E9AFE;

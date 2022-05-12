@@ -29,3 +29,9 @@ color: #fff;
 margin-top: 1rem;
 cursor: pointer;
 `
+
+export const Loading = styled.img`
+width: 2rem;
+height: 2rem;
+
+`

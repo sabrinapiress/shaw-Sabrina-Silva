@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "../../hooks/useForm";
 import { cadastro } from "../../services/appAccess";
+import loadingGif from "../../assets/loader.gif"
 import {
     B,
+  CheckBox,
   ContainerForm,
   ContractP,
   InputEmail,
@@ -11,15 +13,17 @@ import {
   InputSenha,
   LoginButton,
 } from "./styled";
+import { Loading } from "../LoginForm/styled";
 
 export const RegistrationForm = () => {
   const [form, onChangeInput, clear] = useForm({ username: "", email: "", password: "" });
+  const [isLoading, setIsLoading] = useState(false)
 
   const navigate = useNavigate()
 
   const onSubmitForm = (event) => {
     event.preventDefault();
-    cadastro(form, clear, navigate)
+    cadastro(form, clear, navigate, setIsLoading)
   };
 
   return (
@@ -49,17 +53,15 @@ export const RegistrationForm = () => {
           onChange={onChangeInput}
           required
         />
-        <div>
         <ContractP>
           Ao continuar, você concorda com o nosso <B>Contrato de usuário</B> e
           nossa <B>Política de Privacidade</B>
         </ContractP>
-      </div>
-      <div>
-        <input type="checkbox" id="horns" name="horns" />
+      <CheckBox>
+        <input type="checkbox" id="horns" name="horns" required/>
         <label for="horns">Eu concordo em receber emails sobre coisas legais do Labeddit</label>
-      </div>
-        <LoginButton type={"submit"}>Cadastrar</LoginButton>
+      </CheckBox>
+        <LoginButton type={"submit"}>{isLoading ? <Loading src={loadingGif}/> : <>Continuar</>}</LoginButton>
       </ContainerForm>
     </div>
   );

@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Logo from "../../assets/logo-2.png";
 import { GlobalContext } from "../../global/GlobalContext";
-import { goBack, goToLoginPage } from "../../Routes/coordinator";
+import {goToLoginPage } from "../../Routes/coordinator";
 import { ContainerHeader, ImgLogo, ButtonHeader } from "./styled";
 
 export const Header = (props) => {
