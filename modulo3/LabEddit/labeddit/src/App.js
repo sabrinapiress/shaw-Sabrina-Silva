@@ -13,6 +13,7 @@ margin-left: 25rem;
 }
 
 `
+document.title = "LabEddit"
 
 const App = () => {
   return (

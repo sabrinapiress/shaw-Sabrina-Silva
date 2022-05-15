@@ -14,9 +14,10 @@ export const TextAreaPost = styled.textarea`
   border: none;
   width: 85%;
   height: 10vh;
+  font-size: 1.1rem;
   font-family: 'IBM Plex Sans';
   ::placeholder {
-    padding: 0.5rem;
+    padding: 0.2rem;
   }
 `
 
@@ -78,4 +79,30 @@ background-color: #fff;
 margin-left: 0.5rem;
 margin-top: 0.5rem;
 cursor: pointer;
+`
+
+export const Loading = styled.img`
+width: 2rem;
+height: 2rem;
+
+`
+export const LoadingFeed = styled.img`
+width: 4rem;
+margin-left: 9.5rem;
+margin-top: 2rem;
+margin-bottom: 1rem;
+`
+export const P =styled.p`
+margin-left: 2rem;
+font-size: small;
+color: #f9b24e;
+`
+
+export const BodyP =styled.p`
+
+`
+
+export const NamePostP= styled.p`
+color: #f9b24e;
+font-size: small;
 `

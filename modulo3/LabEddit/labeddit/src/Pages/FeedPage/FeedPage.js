@@ -7,6 +7,8 @@ import { useForm } from "../../hooks/useForm";
 import { useProtectedPage } from "../../hooks/useProtectedPage";
 import { useRequestData } from "../../hooks/useRequestData";
 import { postCreatePost } from "../../services/contentView";
+import loader from "../../assets/loader.gif"
+import loadingGif from "../../assets/loading .gif"
 import {
   ContainerFeed,
   Hr,
@@ -14,8 +16,9 @@ import {
   PostButton,
   TextAreaPost,
   TextAreaTitle,
+  Loading
 } from "./styled";
-import loadingGif from "../../assets/loading .gif";
+
 
 export const FeedPage = () => {
   useProtectedPage();
@@ -25,12 +28,12 @@ export const FeedPage = () => {
 
   const onSubmitForm = (event) => {
     event.preventDefault();
-    postCreatePost(form, clear);
+    postCreatePost(form, clear, setIsLoading);
   };
 
-  // const feedPosts = useRequestData([], `${BASE_URL}/posts`);
+  // const getPosts = useRequestData([], `${BASE_URL}/posts`);
 
-  const feedPost = async () => {
+  const getPost = async () => {
     setIsLoading(true);
     try {
       const res = await axios.get(`${BASE_URL}/posts`, {
@@ -47,7 +50,7 @@ export const FeedPage = () => {
   };
 
   useEffect(() => {
-    feedPost();
+    getPost();
   }, []);
 
   const renderCard = posts.map((post) => {

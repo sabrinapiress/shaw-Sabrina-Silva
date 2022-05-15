@@ -23,7 +23,7 @@ export const RegistrationForm = () => {
 
   const onSubmitForm = (event) => {
     event.preventDefault();
-    cadastro(form, clear, navigate, setIsLoading)
+    cadastro(form, clear, navigate)
   };
 
   return (
@@ -61,7 +61,7 @@ export const RegistrationForm = () => {
         <input type="checkbox" id="horns" name="horns" required/>
         <label for="horns">Eu concordo em receber emails sobre coisas legais do Labeddit</label>
       </CheckBox>
-        <LoginButton type={"submit"}>{isLoading ? <Loading src={loadingGif}/> : <>Continuar</>}</LoginButton>
+        <LoginButton type={"submit"}> Continuar</LoginButton>
       </ContainerForm>
     </div>
   );

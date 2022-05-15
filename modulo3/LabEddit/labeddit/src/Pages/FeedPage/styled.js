@@ -16,10 +16,12 @@ export const TextAreaTitle = styled.input`
   border: none;
   width: 85%;
   height: 4vh;
+  font-size: 0.9rem;
+  font-weight: 600;
   font-family: 'IBM Plex Sans';
   margin-bottom: 8px;
   ::placeholder {
-    padding: 0.5rem;
+    padding: 0.2rem;
   }
 `;
 
@@ -30,9 +32,10 @@ export const TextAreaPost = styled.textarea`
   border: none;
   width: 85%;
   height: 20vh;
+  font-size: 1.2rem;
   font-family: 'IBM Plex Sans';
   ::placeholder {
-    padding: 0.5rem;
+    padding: 0.2rem;
   }
 `;
 
@@ -59,4 +62,9 @@ export const LoadingFeed = styled.img`
 width: 6rem;
 margin-left: 9.5rem;
 margin-top: 3rem;
+`
+export const Loading = styled.img`
+width: 2rem;
+height: 2rem;
+
 `

@@ -22,16 +22,17 @@ export const login = async (body, clear, navigate, setIsLoading) => {
   }
 };
 
-export const cadastro = async (body, clear, navigate, setIsLoading) => {
+export const cadastro = async (body, clear, navigate) => {
+ 
   try {
     const res = await axios.post(`${BASE_URL}/users/signup`, body);
     localStorage.setItem("token", res.data.token);
-    setIsLoading(false)
     clear();
+    
     goFeedPage(navigate)
   } catch (err) {
-    setIsLoading(false)
-    alert("Erro, tente novamente.",err.response.data);
+  console.log(err);
+    alert("Erro, tente novamente.",err.response.data.message);
     clear();
   }
 };

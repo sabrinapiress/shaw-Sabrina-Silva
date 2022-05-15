@@ -1,13 +1,15 @@
 import axios from "axios";
 import { ArrowFatDown, ArrowFatUp, Backspace, X } from "phosphor-react";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { NameP, PostCommentP, PostP } from "../../components/CardPost/styled";
 import { Header } from "../../components/Header/Header";
 import { BASE_URL } from "../../constant/urls";
 import { useForm } from "../../hooks/useForm";
 import { useProtectedPage } from "../../hooks/useProtectedPage";
 import { useRequestData } from "../../hooks/useRequestData";
 import { goBack } from "../../Routes/coordinator";
+import loadingGif from "../../assets/loading.gif";
 import {
   delVoteComments,
   postVoteComments,
@@ -23,6 +25,11 @@ import {
   Hr,
   RenderCommenstDiv,
   TextAreaPost,
+  Loading,
+  LoadingFeed,
+  BodyP,
+  P,
+  NamePostP,
 } from "./styled";
 
 export const PostsPage = () => {
@@ -30,10 +37,28 @@ export const PostsPage = () => {
   const navigate = useNavigate();
   const params = useParams();
   const [form, onChangeInput, clear] = useForm({ body: "" });
+  const [isLoading, setIsLoading] = useState(false);
 
-  const comments = useRequestData([],`${BASE_URL}/posts/${params.id}/comments`)[0];
+  const [posts, getPosts] = useRequestData([], `${BASE_URL}/posts`);
+  const comments = useRequestData(
+    [],
+    `${BASE_URL}/posts/${params.id}/comments`
+  )[0];
+  const [post, setPost] = useState({});
 
-  const postCreateComment = (form, clear) => {
+  useEffect(() => {
+    setIsLoading(true);
+    for (const post of posts) {
+      if (post.id === params.id) {
+        setPost(post);
+        setIsLoading(false);
+        break;
+      }
+    }
+  }, [posts]);
+
+  const postCreateComment = (form, clear, setIsLoading) => {
+    setIsLoading(true);
     axios
       .post(`${BASE_URL}/posts/${params.id}/comments`, form, {
         headers: {
@@ -41,32 +66,30 @@ export const PostsPage = () => {
         },
       })
       .then((res) => {
-        alert(res.data);
+        window.location.reload();
+        setIsLoading(false);
         clear();
       })
       .catch((err) => {
+        setIsLoading(false);
         alert(err.data);
       });
   };
 
-  // useEffect(()=>{
-  //   postCreateComment()
-  // },[])
-
   const onSubmitForm = (event) => {
     event.preventDefault();
-    postCreateComment(form, clear);
+    postCreateComment(form, clear, setIsLoading);
   };
 
   const renderComments = comments.map((comment) => {
     return (
       <Comment>
-        <p>{comment.username}</p>
-        <p>{comment.body}</p>
+        <NamePostP>Comentário enviado por: {comment.username}</NamePostP>
+        <BodyP>{comment.body}</BodyP>
         <ButtonPost onClick={() => postVoteComments(comment.id)}>
           <ArrowFatUp />
         </ButtonPost>
-        {comment.voteSum}
+        <> {comment.voteSum}</>
         <ButtonPost onClick={() => putVoteComments(comment.id)}>
           <ArrowFatDown />
         </ButtonPost>
@@ -82,6 +105,25 @@ export const PostsPage = () => {
       <ButtonX onClick={() => goBack(navigate)}>
         <X size={25} />
       </ButtonX>
+      <Hr />
+      {isLoading ? (
+        <LoadingFeed src={loadingGif} />
+      ) : (
+        <div>
+        <P>
+          Post enviado por: <b>{post.username}</b>
+        </P>
+        <PostP>{post.title}</PostP>
+        <PostCommentP>{post.body}</PostCommentP>
+      </div>
+      )}
+      {/* <div>
+        <P>
+          Post enviado por: <b>{post.username}</b>
+        </P>
+        <PostP>{post.title}</PostP>
+        <PostCommentP>{post.body}</PostCommentP>
+      </div> */}
       <ContainerComment onSubmit={onSubmitForm}>
         <TextAreaPost
           placeholder="Adicionar comentário"
@@ -91,10 +133,14 @@ export const PostsPage = () => {
           onChange={onChangeInput}
           required
         />
-        <ButtonComment type={"submit"}>Responder</ButtonComment>
+        <ButtonComment type={"submit"}> Responder</ButtonComment>
       </ContainerComment>
       <Hr />
-      <RenderCommenstDiv>{renderComments}</RenderCommenstDiv>
+      {isLoading ? (
+        <LoadingFeed src={loadingGif} />
+      ) : (
+        <RenderCommenstDiv>{renderComments}</RenderCommenstDiv>
+      )}
     </div>
   );
 };
