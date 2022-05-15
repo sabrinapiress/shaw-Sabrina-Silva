@@ -2,10 +2,11 @@ import styled from "styled-components";
 
 export const ContainerPai = styled.div`
   width: 100%;
-  height: 100%;
+  height: 100vh;
   background-color: #fcb4d3;
   padding-bottom: 2rem;
   padding-top: 2rem;
+
 `;
 
 export const AppContainer = styled.div`
@@ -14,8 +15,9 @@ export const AppContainer = styled.div`
   justify-content: flex-start;
   align-items: center;
   margin: 0 auto;
-  width: 16rem;
-  height: 77vh;
+  width: 18rem;
+  /* min-height: auto; */
+  height: 70vh;
   border: 2px solid #fcb4d3;
   border-radius: 3rem;
   background-color: #fff;

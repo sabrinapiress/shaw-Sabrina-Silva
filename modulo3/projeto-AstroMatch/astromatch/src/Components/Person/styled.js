@@ -34,8 +34,8 @@ export const BlocoDescrição = styled.div`
 `;
 
 export const ImgPerfil = styled.img`
-  width: 12.2rem;
-  height: 14.2rem;
+  width: 13rem;
+  min-height: auto;
   border-radius: 1.5rem;
 `;
 
@@ -43,6 +43,7 @@ export const ImgLike = styled.img`
   width: 2.9rem;
   height: 2.9rem;
   transition: 0.2s;
+  margin-bottom: 1rem;
   cursor: pointer;
   :hover {
     width: 3.1rem;
@@ -70,6 +71,7 @@ export const BorderImgNoLike = styled.div`
   justify-content: center;
   align-items: center;
   transition: 0.2s;
+  margin-bottom: 1rem;
   cursor: pointer;
   :hover {
     width: 2.9rem;
