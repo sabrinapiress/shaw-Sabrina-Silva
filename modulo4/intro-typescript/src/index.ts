@@ -1,4 +1,5 @@
-console.log("Olá");
+// console.log("Olá");
+
 //EXERCICIO 1
 // function checaTriangulo(a:number, b:number, c:number): string {
 //     if (a !== b && b !== c) {
@@ -65,3 +66,60 @@ console.log("Olá");
 //  }
 
 //  console.log(checaRenovacaoRG(2022,1996,2020));
+
+//EXERCICIO 6
+
+// function operacoesSoma(num1: number, num2:number):number{
+//     const soma:number = num1 + num2
+//     return (soma)
+// }
+
+// function operacoesSub(num1: number, num2:number):number{
+//     const subtracao: number = num1 - num2
+//     return (subtracao)
+// }
+
+// function operacoesMult(num1: number, num2:number):number{
+//     const multiplicacao:number = num1 * num2
+//     return (multiplicacao)
+// }
+
+// function operacoesVerificaMaior(num1: number, num2:number):boolean{
+//     const verificaMaior: boolean = num1 > num2 
+//     return (verificaMaior)
+// }
+
+// function operacoes(num1: number, num2:number):void{
+//     const soma:number = num1 + num2
+//     const subtracao: number = num1 - num2
+//     const multiplicacao:number = num1 * num2
+//     const verificaMaior: boolean = num1 > num2   
+//     console.log(soma, subtracao, multiplicacao, verificaMaior)
+// }
+
+// operacoes(57,31)
+
+// console.log(operacoesSoma(2,7));
+// console.log(operacoesSub(2,7));
+// console.log(operacoesMult(2,7));
+// console.log(operacoesVerificaMaior(2,7));
+
+//EXERCICIO 7
+
+// const dna: string= "ATTGCTGCGCATTAACGACGCGTA"
+// const rna: string= "UAACGACGCGUAAUUGCUGCGCAU"
+
+// const resultado = dna.replace("ATTGCTGCGCATTAACGACGCGTA","UAACGACGCGUAAUUGCUGCGCAU")
+
+// console.log(resultado);
+
+//EXERCICIO 8
+
+// function trocaString(string:string):any{
+//     const fraseSplit:Array<any>= string.split("")
+//     const fraseReverse:Array<any>= fraseSplit.reverse()
+//     const fraseJoin:string= fraseReverse.join("")
+//     return( fraseJoin)
+// }
+
+// console.log(trocaString("abcd"));
