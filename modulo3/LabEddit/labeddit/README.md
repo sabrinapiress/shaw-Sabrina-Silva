@@ -9,3 +9,4 @@ Link do Surge: http://labeddit-sabrina.surge.sh
 🛠  As seguintes ferramentas foram usadas na construção do projeto:
 
 React Axios - Styled-components - Routes - Phosphor React Icons
+
