@@ -1,17 +1,20 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Container, TitleH3} from "./styled";
+import { useMatches } from "../../hooks/useMatches";
 
 const url = "https://us-central1-missao-newton.cloudfunctions.net/astroMatch/sabrina-shaw/";
 
-const MatchList = () => {
-   const [matchList, setMatchList] = useState([])
+export const MatchList = () => {
+   const [matchList, setMatchList] = useState([{}])
+
+   console.log(matchList);
 
    const getMatches = () => {
     axios
     .get ("https://us-central1-missao-newton.cloudfunctions.net/astroMatch/sabrina-shaw/matches")
     .then ((res)=>{
-        console.log(res)
+        console.log(res.data)
         setMatchList(res.data.matches)
     }) 
     .catch ((err)=>{
@@ -22,6 +25,8 @@ const MatchList = () => {
    useEffect(() => {
     getMatches();
   }, []);
+  
+  const matches = useMatches();
 
   const putClear = () => {
       axios
@@ -36,7 +41,8 @@ const MatchList = () => {
 
 const List = matchList.response
 let renderList
- renderList = List ? matchList.response.map((match)=>{
+ renderList = List ? matchList[0].response.map((match)=>{
+     console.log(match);
     return(
         <div key={match.id}>
             <img src={match.photo} alt= {match.name}/>
@@ -45,16 +51,21 @@ let renderList
     )
 }): renderList = <p>Erro! Sem matches</p>
 
-//console.log(renderList);
+
     return (
         <Container>
             <>
             <TitleH3>Seus Matches</TitleH3>
             </>
-            {renderList}
+            {matches.map(profile=> {
+        return (
+            <div key={profile.id}>
+                {profile.name}
+            </div>
+        )
+    })}
             <button onClick={()=> putClear()}>Excluir matches</button>
         </Container>
     )
 }
 
-export default MatchList 
