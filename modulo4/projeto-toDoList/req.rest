@@ -2,24 +2,58 @@ POST http://localhost:3003/user
 Content-Type: application/json
 
 {
-    "name": "Lua",
-    "nickname": "lua_123",
-    "email": "lua_123@hotmail.com"
+    "name": "Lucas",
+    "nickname": "lucas_lucas",
+    "email": "lucas@gmail.com"
 }
 
 ###
-
 
 GET http://localhost:3003/user/1
 
 ###
 
-POST http://localhost:3003/task
+PUT http://localhost:3003/user/edit/1
 Content-Type: application/json
+
+{
+"name": "Lisa",
+"nickname": "lisa_123"
+}
+
+###
+
+POST http://localhost:3003/task
+content-Type: application/json
 
 {
     "title": "Lavar louça",
     "description": "lavar a louça",
     "limit_date": "2022-06-15",
-    "user_author_id": 4
+    "user_author_id": 1
 }
+
+###
+
+GET http://localhost:3003/task/2/1
+
+###
+
+GET http://localhost:3003/user_all
+
+###
+
+GET http://localhost:3003/user_nickname?query=lua_123
+
+###
+
+POST http://localhost:3003/task/responsible
+content-Type: application/json
+
+{
+    "task_id": 1,
+    "user_id": 2
+}
+
+###
+
