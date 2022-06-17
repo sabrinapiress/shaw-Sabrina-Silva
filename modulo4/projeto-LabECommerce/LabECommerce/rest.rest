@@ -1,0 +1,27 @@
+POST http://localhost:3003/create-user
+Content-Type: application/json
+
+{
+    "name": "Luiz",
+    "email": "luiz@luiz.com",
+    "password": "qwert32"
+}
+
+###
+
+GET http://localhost:3003/users
+
+###
+
+POST http://localhost:3003/create-products
+Content-Type: application/json
+
+{
+    "name": "MacBook",
+    "price": 5000,
+    "image_url": "https://i.picsum.photos/id/0/5616/3744.jpg?hmac=3GAAioiQziMGEtLbfrdbcoenXoWAW-zlyEAMkfEdBzQ"
+}
+
+###
+
+GET http://localhost:3003/products
