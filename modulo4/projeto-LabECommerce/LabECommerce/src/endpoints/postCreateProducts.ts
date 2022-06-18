@@ -1,9 +1,12 @@
 import { Request, Response } from "express"
 import { insertProducts } from "../data/insertProducts"
-import {id} from "../services/id"
+//import {id} from "../services/id"
+
 export const postCreateProducts = async (req:Request, res:Response) => {
     try{
         const {name, price, image_url} = req.body
+        
+        const id = Math.floor(Date.now() * Math.random()).toString(36)
 
         if (name !== String(name) || price !== Number(price) || image_url !== String(image_url) || id !== String(id)) {
             throw new Error("Valores invalidos!")
