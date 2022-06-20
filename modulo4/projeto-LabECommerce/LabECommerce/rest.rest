@@ -1,0 +1,43 @@
+POST http://localhost:3003/create-user
+Content-Type: application/json
+
+{
+    "name": "Luiz",
+    "email": "luiz@luiz.com",
+    "password": "qwert32"
+}
+
+###
+
+GET http://localhost:3003/users
+
+###
+
+POST http://localhost:3003/create-products
+Content-Type: application/json
+
+{
+    "name": "Capa para Iphone",
+    "price": 120,
+    "image_url": "https://cf.shopee.com.br/file/ab1c7ed3ff02bdc12863ac26b3794dac"
+}
+
+###
+
+GET http://localhost:3003/products
+
+
+###
+
+POST http://localhost:3003/purchase
+Content-Type: application/json
+
+{
+    "userId": "9nz05i93",
+    "productId": "dce1934c",
+    "quantity": 1
+}
+
+###
+
+GET http://localhost:3003/user/21uv3w7i/purchase
